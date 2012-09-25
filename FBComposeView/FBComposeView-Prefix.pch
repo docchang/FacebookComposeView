@@ -6,3 +6,10 @@
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
 #endif
+
+
+#ifdef DEBUG
+#define DebugLog(format, ...) NSLog((@"%s [Line %d] " format), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define DebugLog(format, ...)
+#endif

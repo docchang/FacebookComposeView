@@ -668,14 +668,14 @@ NSString * const kFBComposeViewResourceBundle = @"FBComposeView.bundle";
     
     if (![FBSession.activeSession isOpen]) {
         
-        [FBSession openActiveSessionWithPermissions:[NSArray arrayWithObjects: @"read_stream", @"publish_actions", @"publish_stream", nil]
+        [FBSession openActiveSessionWithPermissions:[NSArray arrayWithObjects:@"publish_actions", nil]//[NSArray arrayWithObjects: @"read_stream", @"publish_actions", @"publish_stream", nil]
                                                allowLoginUI:YES
                                   completionHandler:^(FBSession *session,
                                                       FBSessionState status,
                                                       NSError *error) {
                                       
                                       if (error) {
-                                          NSLog(@"error");
+                                          DebugLog(@"error:%@, %@", error, [error userInfo]);
                                       } else {
                                           [FBSession setActiveSession:session];
                                           [self.sendButton setTitle:@"Post" forState:UIControlStateNormal];
@@ -721,7 +721,8 @@ NSString * const kFBComposeViewResourceBundle = @"FBComposeView.bundle";
     [newConnection addRequest:request completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         if (error)
         {
-            NSLog(@"    error");
+//            NSLog(@"    error");
+            DebugLog(@"error:%@, %@", error, [error userInfo]);
             
             // remove activity
             [[[self.sendButton subviews] lastObject] removeFromSuperview];
