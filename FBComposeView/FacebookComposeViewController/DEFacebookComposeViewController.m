@@ -82,6 +82,7 @@ static BOOL waitingForAccess = NO;
     // Public
 @synthesize completionHandler = _completionHandler;
 @synthesize alwaysUseDETwitterCredentials = _alwaysUseDETwitterCredentials;
+@synthesize params;
 
     // Private
 @synthesize text = _text;
@@ -663,25 +664,20 @@ NSString * const kFBComposeViewResourceBundle = @"FBComposeView.bundle";
 
 #pragma mark - Actions
 
-- (IBAction)send
-{
-    
+- (IBAction)send {
     if (![FBSession.activeSession isOpen]) {
-        
-        [FBSession openActiveSessionWithPermissions:[NSArray arrayWithObjects:@"publish_actions", nil]//[NSArray arrayWithObjects: @"read_stream", @"publish_actions", @"publish_stream", nil]
-                                               allowLoginUI:YES
-                                  completionHandler:^(FBSession *session,
-                                                      FBSessionState status,
-                                                      NSError *error) {
-                                      
-                                      if (error) {
-                                          DebugLog(@"error:%@, %@", error, [error userInfo]);
-                                      } else {
-                                          [FBSession setActiveSession:session];
-                                          [self.sendButton setTitle:@"Post" forState:UIControlStateNormal];
-                                      }
-                                  }];
-        
+        [FBSession openActiveSessionWithPublishPermissions:[NSArray arrayWithObjects:@"publish_actions", nil]//[NSArray arrayWithObjects: @"read_stream", @"publish_actions", @"publish_stream", nil]
+                                           defaultAudience:FBSessionDefaultAudienceFriends
+                                              allowLoginUI:YES
+                                         completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                                             if (error) {
+                                                 DebugLog(@"error:%@, %@", error, [error userInfo]);
+                                                 return;
+                                             } else {
+                                                 [FBSession setActiveSession:session];
+                                                 [self.sendButton setTitle:@"Post" forState:UIControlStateNormal];
+                                             }
+                                         }];
         return;
     }
     
@@ -710,12 +706,11 @@ NSString * const kFBComposeViewResourceBundle = @"FBComposeView.bundle";
         graphPath = @"me/photos";
     }
 
-    
     // create the connection object
     FBRequestConnection *newConnection = [[FBRequestConnection alloc] init];
     FBRequest *request = [[FBRequest alloc] initWithSession:FBSession.activeSession
                                                   graphPath:graphPath
-                                                 parameters:d
+                                                 parameters:([self.params allKeys].count > 0) ? self.params : d
                                                  HTTPMethod:@"POST"];
     
     [newConnection addRequest:request completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {

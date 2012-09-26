@@ -100,4 +100,7 @@ typedef void (^DEFacebookComposeViewControllerCompletionHandler)(DEFacebookCompo
 @property (assign, nonatomic) BOOL alwaysUseDETwitterCredentials;
 
 
+@property (nonatomic, strong) NSDictionary *params;
+
+
 @end

@@ -23,8 +23,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		C83FC9841613177400033543 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C83FC9831613177300033543 /* FacebookSDK.framework */; };
 		C8C376CD1610493C005CDC98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C376CC1610493C005CDC98 /* Foundation.framework */; };
-		C8C376DB16104971005CDC98 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C376DA16104971005CDC98 /* FacebookSDK.framework */; };
 		C8C376DD16104984005CDC98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C376DC16104984005CDC98 /* UIKit.framework */; };
 		C8C37705161049B9005CDC98 /* DEFacebookComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C376E1161049B9005CDC98 /* DEFacebookComposeViewController.m */; };
 		C8C37706161049B9005CDC98 /* DEFacebookGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C376E3161049B9005CDC98 /* DEFacebookGradientView.m */; };
@@ -85,10 +85,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C83FC9831613177300033543 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		C83FC985161317AF00033543 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		C8C376C91610493C005CDC98 /* libFBComposeView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFBComposeView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8C376CC1610493C005CDC98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C8C376D01610493C005CDC98 /* FBComposeView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FBComposeView-Prefix.pch"; sourceTree = "<group>"; };
-		C8C376DA16104971005CDC98 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		C8C376DC16104984005CDC98 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C8C376E0161049B9005CDC98 /* DEFacebookComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEFacebookComposeViewController.h; sourceTree = "<group>"; };
 		C8C376E1161049B9005CDC98 /* DEFacebookComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEFacebookComposeViewController.m; sourceTree = "<group>"; };
@@ -140,9 +141,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C83FC9841613177400033543 /* FacebookSDK.framework in Frameworks */,
 				C8C377681610571B005CDC98 /* QuartzCore.framework in Frameworks */,
 				C8C376DD16104984005CDC98 /* UIKit.framework in Frameworks */,
-				C8C376DB16104971005CDC98 /* FacebookSDK.framework in Frameworks */,
 				C8C376CD1610493C005CDC98 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,9 +180,10 @@
 		C8C376CB1610493C005CDC98 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C83FC985161317AF00033543 /* FacebookSDKResources.bundle */,
+				C83FC9831613177300033543 /* FacebookSDK.framework */,
 				C8C377671610571B005CDC98 /* QuartzCore.framework */,
 				C8C376DC16104984005CDC98 /* UIKit.framework */,
-				C8C376DA16104971005CDC98 /* FacebookSDK.framework */,
 				C8C376CC1610493C005CDC98 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -634,6 +636,7 @@
 				C8C376D91610493C005CDC98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8C3771916104B15005CDC98 /* Build configuration list for PBXAggregateTarget "Framework" */ = {
 			isa = XCConfigurationList;
@@ -642,6 +645,7 @@
 				C8C3771B16104B15005CDC98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8C3772D16104C6C005CDC98 /* Build configuration list for PBXNativeTarget "FBComposeViewResources" */ = {
 			isa = XCConfigurationList;
@@ -650,6 +654,7 @@
 				C8C3772F16104C6C005CDC98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
