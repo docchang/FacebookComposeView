@@ -714,9 +714,7 @@ NSString * const kFBComposeViewResourceBundle = @"FBComposeView.bundle";
                                                  HTTPMethod:@"POST"];
     
     [newConnection addRequest:request completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        if (error)
-        {
-//            NSLog(@"    error");
+        if (error) {
             DebugLog(@"error:%@, %@", error, [error userInfo]);
             
             // remove activity
@@ -733,11 +731,7 @@ NSString * const kFBComposeViewResourceBundle = @"FBComposeView.bundle";
             [alertView show];
             
             self.sendButton.enabled = YES;
-            
-            
-        }
-        else
-        {
+        } else {
             CGFloat yOffset = -(self.view.bounds.size.height + CGRectGetMaxY(self.cardView.frame) + 10.0f);
             
             [UIView animateWithDuration:0.35f
@@ -753,13 +747,11 @@ NSString * const kFBComposeViewResourceBundle = @"FBComposeView.bundle";
             else {
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
-
-            NSLog(@"   ok");
+            DebugLog(@"ok");
         };
     }];
     
     [newConnection start];
-
 }
 
 
